@@ -1,0 +1,182 @@
+/* Estilos Generales */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O similar, Arial */
+    background-color: #E6E9F0; /* Un gris muy azulado muy claro para resaltar las sombras blancas */
+    color: #444;
+}
+
+/* Contenedor principal estilo móvil */
+.phone-frame {
+    width: 375px; 
+    height: 812px; 
+    background-color: #F0F2F5; /* Fondo más blanco para el "vidrio" de la pantalla */
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra para simular el borde del teléfono */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.03); /* Un borde muy sutil para definir la forma */
+}
+
+/* Icono de atrás */
+.back-button {
+    text-decoration: none;
+    color: #888;
+    font-size: 24px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+.back-button:hover {
+    opacity: 0.7;
+}
+
+/* Título */
+h1 {
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 60px;
+    margin-top: 0;
+}
+
+/* Contenedor del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo para los grupos de entrada (input + iconos) */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* El efecto neumórfico "hundido" en los inputs */
+input {
+    width: 100%;
+    padding: 18px 20px;
+    padding-left: 55px; /* Espacio para el icono izquierdo */
+    font-size: 16px;
+    border: none;
+    background-color: #F3F5F9;
+    color: #444;
+    border-radius: 100px;
+    /* Sombras neumórficas (Efecto suave y hundido) */
+    box-shadow: inset 3px 3px 6px #d1d9e6, 
+                inset -3px -3px 6px #ffffff;
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px #d1d9e6, 
+                inset -1px -1px 2px #ffffff,
+                0 0 5px rgba(100, 100, 255, 0.2); /* Sombra externa sutil al enfocar */
+}
+
+input::placeholder {
+    color: #A0A9B5;
+}
+
+/* Iconos dentro de los inputs */
+.icon-left {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.icon-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #A0A9B5;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Botón Login (Efecto resaltado azul) */
+.login-btn {
+    background-color: #6A77F2; /* Color azul de la imagen */
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.1s, box-shadow 0.2s;
+    /* Sombras neumórficas para efecto resaltado (soft y difuso) */
+    box-shadow: 4px 4px 10px rgba(106, 119, 242, 0.4), 
+                -4px -4px 10px rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    align-self: flex-start; /* Se alinea a la izquierda como en la imagen */
+}
+
+.login-btn:hover {
+    box-shadow: 6px 6px 15px rgba(106, 119, 242, 0.5), 
+                -6px -6px 15px rgba(255, 255, 255, 1);
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+/* Enlaces y Texto Auxiliar */
+.links-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación por defecto a la izquierda */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.need-help {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    align-self: flex-end; /* Alinea "Need Help?" a la derecha */
+    margin-top: -15px; /* Un pequeño hack para alinearlo visualmente */
+    position: relative;
+    top: -5px;
+}
+
+.account-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #888;
+    margin-top: 60px;
+}
+
+.signup-link {
+    color: #6A77F2; /* Mismo azul que el botón */
+    text-decoration: none;
+    font-weight: 500;
+}
+.signup-link:hover {
+    text-decoration: underline;
+}
