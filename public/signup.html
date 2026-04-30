@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="back-button"><a href="index.html" style="color:inherit;"><i class="fa-solid fa-arrow-left"></i></a></div>
+        <h1>Sign Up</h1>
+        <div id="status"></div>
+        <form id="signupForm">
+            <div class="input-group">
+                <i class="fa-solid fa-envelope icon-left"></i>
+                <input type="email" id="email" placeholder="e-mail" required>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-lock icon-left"></i>
+                <input type="password" id="pass" placeholder="password" required>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-shield-halved icon-left"></i>
+                <input type="password" id="confirmPass" placeholder="repeat password" required>
+            </div>
+            <button type="submit" class="submit-btn">Sign up</button>
+        </form>
+        <div class="footer-text">
+            Already have an account? <a href="index.html" class="link-azul">Login</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
