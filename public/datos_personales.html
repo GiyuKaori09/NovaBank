@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - Paso 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="back-button"><a href="signup.html" style="color:inherit;"><i class="fa-solid fa-arrow-left"></i></a></div>
+        
+        <h1>Datos Finales</h1>
+        <p class="step-text">Paso 2 de 2</p>
+
+        <form id="finalForm">
+            <!-- Nombre y Fecha (Anteriores) -->
+            <div class="input-group">
+                <i class="fa-solid fa-user icon-left"></i>
+                <input type="text" placeholder="Nombre completo" required>
+            </div>
+
+            <!-- Dirección Completa -->
+            <div class="input-group">
+                <i class="fa-solid fa-location-dot icon-left"></i>
+                <input type="text" placeholder="Dirección completa (Calle, No, Col.)" required>
+            </div>
+
+            <!-- Ocupación o Profesión -->
+            <div class="input-group">
+                <i class="fa-solid fa-briefcase icon-left"></i>
+                <input type="text" placeholder="Ocupación o profesión" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-calendar-days icon-left"></i>
+                <input type="date" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-venus-mars icon-left"></i>
+                <select required class="custom-select">
+                    <option value="" disabled selected>Género</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="O">Otro</option>
+                </select>
+            </div>
+
+            <!-- NIP Generado (Solo lectura) -->
+            <div class="input-group nip-container">
+                <i class="fa-solid fa-key icon-left"></i>
+                <input type="text" id="nipDisplay" placeholder="Tu NIP de seguridad" readonly>
+                <small class="help-text">Este es tu NIP aleatorio generado</small>
+            </div>
+
+            <button type="submit" class="submit-btn">Finalizar Registro</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
