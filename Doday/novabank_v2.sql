@@ -28,4 +28,32 @@ CREATE TABLE CUENTA (
     FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+CREATE TABLE TARJETA_DEBITO (
+    id_tarjeta_debito INT AUTO_INCREMENT PRIMARY KEY,
+    id_cuenta INT NOT NULL,
+    numero_tarjeta_debito VARCHAR(16) UNIQUE NOT NULL,
+    fecha_expiracion DATE NOT NULL,
+    cvv_hash VARCHAR(255) NOT NULL, -- Por seguridad, nunca texto plano
+    pin_hash VARCHAR(255) NOT NULL,
+    estado ENUM('activa', 'bloqueada', 'vencida') DEFAULT 'activa',
+    tipo_red ENUM('visa', 'mastercard') NOT NULL,
+    FOREIGN KEY (id_cuenta) REFERENCES CUENTA(id_cuenta) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE TARJETA_CREDITO (
+    id_tarjeta_credito INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    numero_tarjeta_credito VARCHAR(16) UNIQUE NOT NULL,
+    limite_credito DECIMAL(15, 2) NOT NULL,
+    saldo_utilizado DECIMAL(15, 2) DEFAULT 0.00,
+    dia_corte INT NOT NULL CHECK (dia_corte BETWEEN 1 AND 31),
+    tasa_interes DECIMAL(5, 2) NOT NULL,
+    fecha_expiracion DATE NOT NULL,
+    cvv_hash VARCHAR(255) NOT NULL,
+    estado ENUM('activa', 'bloqueada', 'vencida','inactiva') DEFAULT 'inactiva',
+    FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+
 
