@@ -10,7 +10,7 @@ body {
 
 .phone-frame {
     width: 360px;
-    height: auto; /* Ajustado para que quepan los nuevos campos */
+    height: auto;
     min-height: 750px;
     background-color: #F0F2F5;
     border-radius: 40px;
@@ -72,7 +72,6 @@ input:focus { outline: none; }
     letter-spacing: 1px;
 }
 
-/* Estilo especial para el selector de género */
 .custom-select {
     width: 100%;
     padding: 15px 15px 15px 50px;
@@ -81,17 +80,16 @@ input:focus { outline: none; }
     border-radius: 100px;
     box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
     color: #888;
-    appearance: none; /* Quita la flecha por defecto */
+    appearance: none;
     font-size: 14px;
 }
 
-/* Icono a la derecha del botón Siguiente */
 .submit-btn i {
     margin-left: 10px;
     font-size: 14px;
 }
 .nip-container input {
-    background-color: #e0e5ec; /* Color ligeramente distinto */
+    background-color: #e0e5ec;
     font-weight: bold;
     color: #6A77F2;
     cursor: default;
@@ -105,7 +103,6 @@ input:focus { outline: none; }
     margin-left: 20px;
 }
 
-/* Ajuste para el alto de la tarjeta si hay muchos campos */
 .phone-frame {
     height: auto;
     padding-bottom: 50px;
