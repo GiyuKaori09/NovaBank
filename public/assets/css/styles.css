@@ -1,241 +1,188 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* ── Página general ── */
 body {
-  background: #6a0dad;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #E6E9F0;
 }
 
-.page {
-  max-width: 640px;
-  margin: 0 auto;
+.phone-frame {
+    width: 360px;
+    height: auto; /* Ajustado para que quepan los nuevos campos */
+    min-height: 750px;
+    background-color: #F0F2F5;
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-/* ── Barra superior ── */
-.topbar {
-  background: #1a3a6b;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+.back-button { color: #888; font-size: 20px; margin-bottom: 20px; }
+
+h1 { font-size: 28px; color: #555; margin-bottom: 30px; font-weight: 600; }
+
+.input-group { position: relative; margin-bottom: 15px; }
+
+input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: none;
+    background-color: #F3F5F9;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
-.topbar-brand {
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+input:focus { outline: none; }
+
+.icon-left { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #aaa; }
+
+.submit-btn {
+    background-color: #6A77F2;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px rgba(106, 119, 242, 0.3);
+    transition: 0.3s;
 }
 
-.topbar-title {
-  color: #c9d8f0;
-  font-size: 14px;
+.submit-btn:hover { background-color: #5865e1; }
+
+.footer-text { margin-top: 30px; text-align: center; color: #888; font-size: 13px; }
+.link-azul { color: #6A77F2; text-decoration: none; font-weight: 600; }
+
+#status { padding: 10px; border-radius: 10px; display: none; margin-bottom: 15px; font-size: 13px; text-align: center; }
+.error { background: #fee; color: #c33; border: 1px solid #fcc; }
+.success { background: #efe; color: #3c3; border: 1px solid #cfc; }
+.step-text {
+    font-size: 12px;
+    color: #6A77F2;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.topbar-back {
-  color: #c9d8f0;
-  font-size: 13px;
-  text-decoration: none;
-  transition: color 0.2s;
+/* Estilo especial para el selector de género */
+.custom-select {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: none;
+    background-color: #F3F5F9;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+    color: #888;
+    appearance: none; /* Quita la flecha por defecto */
+    font-size: 14px;
 }
 
-.topbar-back:hover {
-  color: white;
+/* Icono a la derecha del botón Siguiente */
+.submit-btn i {
+    margin-left: 10px;
+    font-size: 14px;
+}
+.nip-container input {
+    background-color: #e0e5ec; /* Color ligeramente distinto */
+    font-weight: bold;
+    color: #6A77F2;
+    cursor: default;
 }
 
-/* ── Contenido ── */
-.content {
-  padding: 1.25rem 1rem 2rem;
+.help-text {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 5px;
+    margin-left: 20px;
 }
 
-/* ── Tarjetas ── */
-.card {
-  background: #ffffff;
-  border: 0.5px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1.25rem;
-  margin-bottom: 1rem;
+/* Ajuste para el alto de la tarjeta si hay muchos campos */
+.phone-frame {
+    height: auto;
+    padding-bottom: 50px;
 }
 
-/* ── Encabezado perfil ── */
-.profile-header h2 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #111111;
+/* Contenedor específico para el Dashboard */
+.dashboard {
+    justify-content: flex-start;
+    padding: 25px;
+    background-color: #F0F2F5;
 }
 
-.profile-header p {
-  font-size: 13px;
-  color: #666666;
-  margin-top: 4px;
+.header-bank {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #444;
 }
 
-/* ── Etiqueta de sección ── */
-.section-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: #666666;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
+.header-icons i { margin-left: 15px; color: #6A77F2; cursor: pointer; }
+
+.main-balance { font-size: 36px; margin: 5px 0 30px 0; color: #333; }
+.main-balance span { font-size: 18px; color: #888; }
+
+.quick-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
 
-/* ── Grid dos columnas ── */
-.row2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.action-item { text-align: center; font-size: 11px; color: #666; }
+
+.circle-btn {
+    width: 50px;
+    height: 50px;
+    background: #F0F2F5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    box-shadow: 5px 5px 10px #d1d9e6, -5px -5px 10px #ffffff;
+    color: #6A77F2;
+    font-size: 18px;
 }
 
-/* ── Campos ── */
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 10px;
+/* Tarjeta Neumórfica */
+.neumorph-card {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+    margin-bottom: 30px;
+    background: #F0F2F5;
 }
 
-.field:last-child {
-  margin-bottom: 0;
-}
+.card-header { display: flex; justify-content: space-between; color: #888; font-size: 10px; font-weight: bold; margin-bottom: 15px; }
+.acc-number { font-family: 'Courier New', monospace; font-size: 16px; margin-bottom: 15px; letter-spacing: 1px; }
+.card-details { display: flex; gap: 40px; margin-bottom: 15px; }
+.card-details small { font-size: 9px; color: #aaa; text-transform: uppercase; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e0e0e0; pt: 10px; }
 
-.field label {
-  font-size: 12px;
-  color: #666666;
-}
+.badge { background: #6A77F2; color: white; padding: 2px 10px; border-radius: 10px; font-size: 10px; }
 
-.field input {
-  height: 36px;
-  border-radius: 8px;
-  border: 0.5px solid #cccccc;
-  background: #ffffff;
-  color: #111111;
-  padding: 0 10px;
-  font-size: 13px;
-  font-family: Arial, sans-serif;
-  outline: none;
-  transition: border 0.15s;
+/* Transacciones */
+.section-title { font-size: 14px; font-weight: bold; color: #555; margin-bottom: 15px; }
+.transaction-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }
-
-.field input:focus {
-  border: 1px solid #3a82f7;
-}
-
-/* ── Texto de ayuda ── */
-.hint {
-  font-size: 11px;
-  color: #999999;
-  margin-top: 2px;
-}
-
-/* ── Fila campos sensibles ── */
-.sensitive-row {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.sensitive-row input {
-  flex: 1;
-}
-
-/* ── Botón ojo ── */
-.toggle-eye {
-  background: transparent;
-  border: 0.5px solid #e0e0e0;
-  border-radius: 8px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.toggle-eye svg {
-  width: 14px;
-  height: 14px;
-  stroke: #666666;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* ── Botones de acción ── */
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-}
-
-.btn-cancel {
-  background: #1a3a6b;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 18px;
-  font-size: 13px;
-  cursor: pointer;
-  color: white;
-  font-family: Arial, sans-serif;
-  transition: background 0.2s;
-}
-
-.btn-cancel:hover {
-  background: #f0f0f0;
-}
-
-.btn-save {
-  background: #1a3a6b;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 20px;
-  font-size: 13px;
-  color: white;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  transition: background 0.2s;
-}
-
-.btn-save:hover {
-  background: #14305a;
-}
-
-/* ── Toast ── */
-.toast {
-  display: none;
-  background: #eaf3de;
-  border: 0.5px solid #97c459;
-  color: #3b6d11;
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 13px;
-  margin-bottom: 1rem;
-  align-items: center;
-  gap: 8px;
-}
-
-.toast svg {
-  width: 14px;
-  height: 14px;
-  stroke: #3b6d11;
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
-}
-
-.toast.show {
-  display: flex;
-}
+.transaction-item i { width: 40px; color: #888; }
+.trans-info { flex-grow: 1; }
+.trans-info p { font-size: 13px; margin: 0; font-weight: 500; }
+.trans-info small { color: #aaa; }
+.amount { font-weight: bold; font-size: 13px; }
+.negative { color: #e54; }
+.positive { color: #2a7; }
