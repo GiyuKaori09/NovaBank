@@ -1,16 +1,7 @@
-<?php
-// paso1_procesar.php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Guardamos temporalmente en la sesión
-    $_SESSION['reg_correo'] = $_POST['correo'];
-    $_SESSION['reg_password'] = $_POST['password'];
-    $_SESSION['reg_curp'] = $_POST['curp'];
-    $_SESSION['reg_telefono'] = $_POST['telefono'];
-
-    // Saltamos al Paso 2 de la interfaz
-    header("Location: datos_personales.html");
-    exit();
-}
-?>
+<form action="paso1_procesar.php" method="POST">
+    <input type="email" name="correo" placeholder="Correo electrónico" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <input type="text" name="curp" placeholder="CURP" maxlength="18" required>
+    <input type="tel" name="telefono" placeholder="Número de teléfono" required>
+    <button type="submit" class="submit-btn">Siguiente</button>
+</form>
