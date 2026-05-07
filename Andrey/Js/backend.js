@@ -1,4 +1,4 @@
-fetch('backend/profile_accounts.php')
+fetch('php/request_credit_account.php')
 
 .then(response => response.json())
 

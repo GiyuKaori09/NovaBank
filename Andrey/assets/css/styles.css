@@ -124,3 +124,67 @@ body {
     right: -100px;
     z-index: 0;
 }
+
+.profile-container{
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.profile-card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.section-title{
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #c084fc;
+}
+
+.account-card{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 18px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.account-card:hover{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.09);
+}
+
+.account-card p{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.account-card span{
+    color: #c084fc;
+    font-weight: 600;
+}
+
+.loading{
+    text-align: center;
+    opacity: 0.6;
+}
+
+.message{
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(192,132,252,0.15);
+    border: 1px solid rgba(192,132,252,0.3);
+    text-align: center;
+    font-size: 14px;
+}

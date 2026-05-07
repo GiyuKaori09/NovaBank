@@ -32,7 +32,6 @@ body {
     text-align: center;
 }
 
-/* LOGO */
 .logo {
     margin-bottom: 25px;
 }
@@ -45,7 +44,6 @@ body {
     color: #c084fc;
 }
 
-/* BIENVENIDA */
 .welcome h2 {
     font-size: 20px;
     margin-bottom: 5px;
@@ -57,7 +55,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* BOTÓN LOGIN */
 .btn {
     width: 100%;
     padding: 12px;
@@ -75,14 +72,12 @@ body {
     transform: translateY(-1px);
 }
 
-/* DIVIDER */
 .divider {
     height: 1px;
     background: rgba(255,255,255,0.1);
     margin: 25px 0;
 }
 
-/* ACCIONES */
 .actions {
     display: flex;
     gap: 10px;
@@ -103,14 +98,12 @@ body {
     background: rgba(255,255,255,0.15);
 }
 
-/* FOOTER */
 .footer {
     margin-top: 20px;
     font-size: 12px;
     opacity: 0.6;
 }
 
-/* GLOW */
 .glow {
     position: absolute;
     width: 300px;
