@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaBank - Perfil</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px;
+            overflow-x:hidden;
+        }
+
+        .backgroundBlur{
+            position:absolute;
+            width:400px;
+            height:400px;
+            background:#4f46e5;
+            border-radius:50%;
+            filter:blur(120px);
+            opacity:0.4;
+            top:-100px;
+            left:-100px;
+        }
+
+        .backgroundBlur2{
+            position:absolute;
+            width:400px;
+            height:400px;
+            background:#06b6d4;
+            border-radius:50%;
+            filter:blur(120px);
+            opacity:0.4;
+            bottom:-100px;
+            right:-100px;
+        }
+
+        .container{
+            position:relative;
+            width:100%;
+            max-width:1200px;
+            z-index:10;
+        }
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 30px;
+            margin-bottom:30px;
+            border-radius:25px;
+            background:rgba(255,255,255,0.08);
+            backdrop-filter:blur(15px);
+            border:1px solid rgba(255,255,255,0.1);
+            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .logo{
+            color:white;
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .logo span{
+            color:#38bdf8;
+        }
+
+        .welcome{
+            color:white;
+            font-size:18px;
+        }
+
+        .cardsContainer{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
+            gap:30px;
+        }
+
+        .cardCuenta{
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.1);
+            backdrop-filter:blur(15px);
+            border-radius:30px;
+            padding:30px;
+            color:white;
+            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+            transition:0.3s ease;
+        }
+
+        .cardCuenta:hover{
+            transform:translateY(-5px);
+        }
+
+        .cardHeader{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:25px;
+        }
+
+        .cardTitle{
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .cardType{
+            padding:8px 15px;
+            border-radius:20px;
+            font-size:14px;
+            background:rgba(255,255,255,0.15);
+        }
+
+        .infoGroup{
+            margin-bottom:18px;
+        }
+
+        .label{
+            font-size:14px;
+            color:#cbd5e1;
+            margin-bottom:5px;
+        }
+
+        .value{
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .saldo{
+            font-size:36px;
+            margin-top:15px;
+            color:#38bdf8;
+        }
+
+        .btnCredito{
+            margin-top:30px;
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:20px;
+            background:linear-gradient(135deg, #38bdf8, #4f46e5);
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s ease;
+        }
+
+        .btnCredito:hover{
+            transform:scale(1.02);
+        }
+
+        .mensaje{
+            margin-top:20px;
+            padding:15px;
+            border-radius:15px;
+            text-align:center;
+            display:none;
+            font-weight:bold;
+        }
+
+        .success{
+            background:rgba(34,197,94,0.2);
+            border:1px solid rgba(34,197,94,0.5);
+            color:#86efac;
+        }
+
+        .error{
+            background:rgba(239,68,68,0.2);
+            border:1px solid rgba(239,68,68,0.5);
+            color:#fca5a5;
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                gap:10px;
+                text-align:center;
+            }
+
+            .cardsContainer{
+                grid-template-columns:1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="backgroundBlur"></div>
+    <div class="backgroundBlur2"></div>
+
+    <div class="container">
+
+        <div class="navbar">
+            <div class="logo">Nova<span>Bank</span></div>
+            <div class="welcome">Bienvenido, Usuario</div>
+        </div>
+
+
+        <div class="cardsContainer">
+
+            <div id="cuentaDebito"></div>
+
+            <div id="cuentaCredito"></div>
+
+        </div>
+
+
+        <button class="btnCredito" id="solicitarCredito">
+            Solicitar Cuenta de Crédito
+        </button>
+
+        <div id="mensaje" class="mensaje"></div>
+
+    </div>
+
+
+    <script>
+
+        fetch('/profile_accounts.php')
+        .then(response => response.json())
+        .then(data => {
+
+            const debitoDiv = document.getElementById('cuentaDebito');
+            const creditoDiv = document.getElementById('cuentaCredito');
+
+            data.forEach(cuenta => {
+
+                if(
+                    cuenta.tipo_cuenta === 'ahorro' ||
+                    cuenta.tipo_cuenta === 'cheques'
+                ){
+
+                    debitoDiv.innerHTML += `
+
+                        <div class="cardCuenta">
+
+                            <div class="cardHeader">
+                                <div class="cardTitle">Cuenta Débito</div>
+                                <div class="cardType">${cuenta.tipo_cuenta}</div>
+                            </div>
+
+                            <div class="infoGroup">
+                                <div class="label">Número de cuenta</div>
+                                <div class="value">${cuenta.numero_cuenta}</div>
+                            </div>
+
+                            <div class="infoGroup">
+                                <div class="label">Estado</div>
+                                <div class="value">${cuenta.estado}</div>
+                            </div>
+
+                            <div class="infoGroup">
+                                <div class="label">Fecha apertura</div>
+                                <div class="value">${cuenta.fecha_apertura}</div>
+                            </div>
+
+                            <div class="saldo">$${cuenta.saldo}</div>
+
+                        </div>
+                    `;
+                }
+
+
+                if(cuenta.tipo_cuenta === 'credito'){
+
+                    creditoDiv.innerHTML += `
+
+                        <div class="cardCuenta">
+
+                            <div class="cardHeader">
+                                <div class="cardTitle">Cuenta Crédito</div>
+                                <div class="cardType">Crédito</div>
+                            </div>
+
+                            <div class="infoGroup">
+                                <div class="label">Número de cuenta</div>
+                                <div class="value">${cuenta.numero_cuenta}</div>
+                            </div>
+
+                            <div class="infoGroup">
+                                <div class="label">Estado</div>
+                                <div class="value">${cuenta.estado}</div>
+                            </div>
+
+                            <div class="infoGroup">
+                                <div class="label">Límite de crédito</div>
+                                <div class="value">$${cuenta.limite_credito}</div>
+                            </div>
+
+                            <div class="saldo">$${cuenta.saldo}</div>
+
+                        </div>
+                    `;
+                }
+
+            });
+
+        })
+
+        .catch(error => {
+            console.log(error);
+        });
+
+
+
+        document.getElementById('solicitarCredito')
+        .addEventListener('click', () => {
+
+            fetch('request_credit_account.php', {
+                method:'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+
+                const mensaje = document.getElementById('mensaje');
+
+                mensaje.style.display = 'block';
+
+                mensaje.innerText = data;
+
+                if(data.includes('aprobada')){
+                    mensaje.classList.remove('error');
+                    mensaje.classList.add('success');
+                }
+                else{
+                    mensaje.classList.remove('success');
+                    mensaje.classList.add('error');
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
