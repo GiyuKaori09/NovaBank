@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaBank — Cerrar cuenta de crédito</title>
+  <link rel="stylesheet" href="cerrar_cuenta.css">
+</head>
+<body>
+
+  
+  <nav class="navbar">
+    <span class="navbar-brand">NovaBank</span>
+    <a class="btn-volver" href="main.html">← Volver</a>
+  </nav>
+
+  <main class="main-content">
+
+    <div class="card encabezado">
+      <h2>Cerrar cuenta de crédito</h2>
+      <p>Completa el siguiente formulario para solicitar el cierre de tu cuenta de crédito. Una vez procesada, esta acción no podrá revertirse.</p>
+    </div>
+
+    <div class="card">
+      <p class="section-label">Datos del titular</p>
+
+      <div class="row2">
+        <div class="field">
+          <label for="nombre">Nombre(s)</label>
+          <input type="text" id="nombre" placeholder="Ingresa tu(s) nombre(s)">
+        </div>
+        <div class="field">
+          <label for="apellido">Apellido(s)</label>
+          <input type="text" id="apellido" placeholder="Ingresa tu(s) apellido(s)">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="num-cuenta">Número de cuenta de crédito</label>
+        <input type="text" id="num-cuenta" placeholder="16 dígitos" maxlength="16">
+        <span class="hint">El número aparece en tu tarjeta de crédito</span>
+      </div>
+
+      <div class="field">
+        <label for="curp">CURP</label>
+        <input type="text" id="curp" placeholder="Ej. ABCD900101HDFXXX01" maxlength="18">
+      </div>
+
+      <div class="field">
+        <label for="motivo">Motivo del cierre</label>
+        <select id="motivo">
+          <option value="" disabled selected>Selecciona un motivo</option>
+          <option value="no_uso">Ya no la utilizo</option>
+          <option value="comisiones">Comisiones elevadas</option>
+          <option value="otro_banco">Me cambio a otro banco</option>
+          <option value="deuda">Quiero saldar mi deuda</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="field" id="campo-otro" style="display:none;">
+        <label for="otro-motivo">Especifica el motivo</label>
+        <input type="text" id="otro-motivo" placeholder="Describe tu motivo">
+      </div>
+    </div>
+
+    <div class="card aviso">
+      <p class="aviso-titulo">⚠ Antes de continuar</p>
+      <ul>
+        <li>Asegúrate de no tener saldo pendiente en tu cuenta de crédito.</li>
+        <li>El proceso de cierre puede tardar hasta 10 días hábiles.</li>
+        <li>Recibirás una confirmación por correo electrónico.</li>
+      </ul>
+      <div class="campo-check">
+        <input type="checkbox" id="acepto">
+        <label for="acepto">Entiendo que esta acción es irreversible y deseo continuar.</label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn-cancelar" href="main.html">Cancelar</a>
+      <button class="btn-confirmar" onclick="confirmar()">Solicitar cierre</button>
+    </div>
+
+    <div class="toast" id="toast">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      Solicitud enviada correctamente. Te contactaremos pronto.
+    </div>
+
+  </main>
+
+  <script src="cerrar_cuenta.js"></script>
+</body>
+</html>

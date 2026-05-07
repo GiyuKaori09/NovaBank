@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #6a0dad;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #1a3a6b;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.btn-volver {
+  color: #c9d8f0;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-volver:hover {
+  color: white;
+}
+
+.main-content {
+  max-width: 620px;
+  margin: 2rem auto;
+  padding: 0 1rem 3rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+
+.encabezado h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-bottom: 8px;
+}
+
+.encabezado p {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field label {
+  font-size: 12px;
+  color: #666666;
+}
+
+.field input,
+.field select {
+  height: 36px;
+  border-radius: 8px;
+  border: 0.5px solid #cccccc;
+  background: #ffffff;
+  color: #111111;
+  padding: 0 10px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: border 0.15s;
+}
+
+.field input:focus,
+.field select:focus {
+  border: 1px solid #3a82f7;
+}
+
+.hint {
+  font-size: 11px;
+  color: #999999;
+  margin-top: 2px;
+}
+
+
+.aviso {
+  background: #fff8e6;
+  border: 0.5px solid #f0c040;
+}
+
+.aviso-titulo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #854f0b;
+  margin-bottom: 10px;
+}
+
+.aviso ul {
+  padding-left: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.aviso ul li {
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.campo-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.campo-check input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.campo-check label {
+  font-size: 13px;
+  color: #444444;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancelar {
+  display: inline-flex;
+  align-items: center;
+  background: #c0392b;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-cancelar:hover {
+  background:#a93226;
+}
+
+.btn-confirmar {
+  background: #c0392b;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-confirmar:hover {
+  background: #a93226;
+}
+
+
+.toast {
+  display: none;
+  background: #eaf3de;
+  border: 0.5px solid #97c459;
+  color: #3b6d11;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-top: 1rem;
+  align-items: center;
+  gap: 8px;
+}
+
+.toast svg {
+  width: 14px;
+  height: 14px;
+  stroke: #3b6d11;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.toast.show {
+  display: flex;
+}
