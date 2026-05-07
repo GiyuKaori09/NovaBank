@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Página general ── */
+body {
+  background: #6a0dad;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ── Barra superior ── */
+.topbar {
+  background: #1a3a6b;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar-brand {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.topbar-title {
+  color: #c9d8f0;
+  font-size: 14px;
+}
+
+.topbar-back {
+  color: #c9d8f0;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.topbar-back:hover {
+  color: white;
+}
+
+/* ── Contenido ── */
+.content {
+  padding: 1.25rem 1rem 2rem;
+}
+
+/* ── Tarjetas ── */
+.card {
+  background: #ffffff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Encabezado perfil ── */
+.profile-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.profile-header p {
+  font-size: 13px;
+  color: #666666;
+  margin-top: 4px;
+}
+
+/* ── Etiqueta de sección ── */
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+/* ── Grid dos columnas ── */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ── Campos ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field label {
+  font-size: 12px;
+  color: #666666;
+}
+
+.field input {
+  height: 36px;
+  border-radius: 8px;
+  border: 0.5px solid #cccccc;
+  background: #ffffff;
+  color: #111111;
+  padding: 0 10px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: border 0.15s;
+}
+
+.field input:focus {
+  border: 1px solid #3a82f7;
+}
+
+/* ── Texto de ayuda ── */
+.hint {
+  font-size: 11px;
+  color: #999999;
+  margin-top: 2px;
+}
+
+/* ── Fila campos sensibles ── */
+.sensitive-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.sensitive-row input {
+  flex: 1;
+}
+
+/* ── Botón ojo ── */
+.toggle-eye {
+  background: transparent;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.toggle-eye svg {
+  width: 14px;
+  height: 14px;
+  stroke: #666666;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Botones de acción ── */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-cancel {
+  background: #1a3a6b;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+  font-family: Arial, sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover {
+  background: #f0f0f0;
+}
+
+.btn-save {
+  background: #1a3a6b;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-save:hover {
+  background: #14305a;
+}
+
+/* ── Toast ── */
+.toast {
+  display: none;
+  background: #eaf3de;
+  border: 0.5px solid #97c459;
+  color: #3b6d11;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 8px;
+}
+
+.toast svg {
+  width: 14px;
+  height: 14px;
+  stroke: #3b6d11;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.toast.show {
+  display: flex;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaBank — Editar perfil</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Barra superior -->
+  <nav class="topbar">
+    <span class="topbar-brand">NovaBank</span>
+    <span class="topbar-title">Editar perfil</span>
+    <a class="topbar-back" href="main.html">← Volver</a>
+  </nav>
+
+  <div class="content">
+
+    <!-- Toast de confirmación -->
+    <div class="toast" id="toast">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      Cambios guardados correctamente
+    </div>
+
+    <!-- Encabezado de perfil -->
+    <div class="card profile-header">
+      <h2 id="display-name">—</h2>
+      <p>Cuenta de débito:</p>
+    </div>
+
+    <!-- Datos personales -->
+    <div class="card">
+      <p class="section-label">Datos personales</p>
+
+      <div class="row2">
+        <div class="field">
+          <label for="nombre">Nombre(s)</label>
+          <input type="text" id="nombre" placeholder="Ingresa tu(s) nombre(s)">
+        </div>
+        <div class="field">
+          <label for="apellido">Apellido(s)</label>
+          <input type="text" id="apellido" placeholder="Ingresa tu(s) apellido(s)">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="curp">CURP</label>
+        <input type="text" id="curp" placeholder="Ej. ABCD900101HDFXXX01" maxlength="18">
+        <span class="hint">18 caracteres — no incluye espacios</span>
+      </div>
+
+      <div class="field">
+        <label for="fecha">Fecha de nacimiento</label>
+        <input type="date" id="fecha">
+      </div>
+
+      <div class="field">
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" placeholder="Calle, número, colonia, ciudad">
+      </div>
+    </div>
+
+    <!-- Datos bancarios -->
+    <div class="card">
+      <p class="section-label">Datos bancarios y de identidad</p>
+
+      <div class="field">
+        <label for="num-cuenta">Número de cuenta de débito</label>
+        <div class="sensitive-row">
+          <input type="password" id="num-cuenta" placeholder="16 dígitos" maxlength="16">
+          <button class="toggle-eye" onclick="toggleVis('num-cuenta', this)" title="Mostrar/ocultar">
+            <svg viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <span class="hint">16 dígitos, sin espacios ni guiones</span>
+      </div>
+
+      <div class="field">
+        <label for="cic">Código CIC de INE</label>
+        <div class="sensitive-row">
+          <input type="password" id="cic" placeholder="9 o 10 dígitos" maxlength="10">
+          <button class="toggle-eye" onclick="toggleVis('cic', this)" title="Mostrar/ocultar">
+            <svg viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <span class="hint">Código impreso en el reverso de tu INE (9–10 dígitos)</span>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="actions">
+      <button class="btn-cancel" onclick="resetForm()">Cancelar</button>
+      <button class="btn-save" onclick="guardar()">Guardar cambios</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/perfil.js"></script>
+</body>
+</html>
