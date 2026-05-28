@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1a012b,
+        #3b0066
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #fff;
+
+    padding: 40px 20px;
+
+    overflow-x: hidden;
+}
+
+.container {
+
+    width: 100%;
+
+    max-width: 550px;
+}
+
+.home-card {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.4);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.logo {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+.logo span {
+
+    color: #c084fc;
+}
+
+.welcome {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.welcome p {
+
+    font-size: 14px;
+
+    opacity: 0.75;
+}
+
+.divider {
+
+    height: 1px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    margin: 25px 0;
+}
+
+.accounts-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.bank-card {
+
+    background:
+    rgba(255,255,255,0.07);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    transition: 0.3s;
+}
+
+.bank-card:hover {
+
+    transform: translateY(-2px);
+
+    background:
+    rgba(255,255,255,0.10);
+}
+
+.bank-card h3 {
+
+    color: #c084fc;
+
+    font-size: 15px;
+
+    margin-bottom: 12px;
+
+    letter-spacing: 1px;
+}
+
+.card-number {
+
+    font-size: 14px;
+
+    opacity: 0.65;
+
+    margin-bottom: 20px;
+}
+
+.card-balance {
+
+    font-size: 32px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+.card-status {
+
+    font-size: 13px;
+
+    opacity: 0.7;
+}
+
+.actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.actions button {
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7b2ff7,
+        #c084fc
+    );
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+    0 5px 18px rgba(123,47,247,0.25);
+}
+
+.actions button:hover {
+
+    opacity: 0.92;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+    0 8px 22px rgba(123,47,247,0.35);
+}
+
+.footer {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+
+    .home-card {
+
+        padding: 25px;
+    }
+
+    .card-balance {
+
+        font-size: 28px;
+    }
+
+    .actions {
+
+        grid-template-columns: 1fr;
+    }
+}
