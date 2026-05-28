@@ -24,23 +24,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['contrasena_hash'])) {
+        if ($user) {
 
-            $_SESSION['id_usuario'] = $user['id_usuario'];
-            $_SESSION['nombre'] = $user['nombre_completo'];
-            $_SESSION['correo'] = $user['correo'];
+            if (
+                password_verify(
+                    $password,
+                    $user['contrasena_hash']
+                )
+            ) {
 
-            header("Location: dashboard.php");
-            exit;
+                $_SESSION['id_usuario'] =
+                    $user['id_usuario'];
+
+                $_SESSION['nombre'] =
+                    $user['nombre_completo'];
+
+                $_SESSION['correo'] =
+                    $user['correo'];
+
+                header("Location: dashboard.php");
+                exit;
+
+            } else {
+
+                $error =
+                    "Contraseña incorrecta";
+            }
 
         } else {
 
-            $error = "Correo o contraseña incorrectos";
+            $error = "
+
+            No existe una cuenta con ese correo.
+
+            <br><br>
+
+            <a href='register.php'
+               style='color:#c084fc;
+                      font-weight:600;
+                      text-decoration:none;'>
+
+               Crear cuenta
+
+            </a>
+            ";
         }
 
     } catch (PDOException $e) {
 
-        $error = "Error: " . $e->getMessage();
+        $error =
+            "Error: " .
+            $e->getMessage();
     }
 }
 ?>
@@ -52,7 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <meta charset="UTF-8">
 
-    <title>NovaBank | Acceso</title>
+    <title>
+        NovaBank | Acceso
+    </title>
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
@@ -129,7 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 </div>
 
-                <button class="btn" type="submit">
+                <button
+                    class="btn"
+                    type="submit">
 
                     Iniciar sesión
 
@@ -138,6 +176,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
 
             <div class="footer">
+
+                <a href="forgot_password.php">
+
+                    ¿Olvidaste tu contraseña?
+
+                </a>
+
+                <br><br>
 
                 ¿No tienes cuenta?
 

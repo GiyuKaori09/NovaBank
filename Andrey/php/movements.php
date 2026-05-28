@@ -12,6 +12,8 @@ if (!isset($_SESSION['id_usuario'])) {
 
 $id_usuario = $_SESSION['id_usuario'];
 
+$filtro = $_GET['filtro'] ?? 'todos';
+
 try {
 
     $sqlCuentas = "
@@ -62,22 +64,60 @@ try {
 
         WHERE
 
+        (
+
             M.id_cuenta_origen IN ($placeholders)
 
             OR
 
             M.id_cuenta_destino IN ($placeholders)
 
+        )
+    ";
+
+    $params = [
+        ...$ids,
+        ...$ids
+    ];
+
+    switch($filtro){
+
+        case 'hoy':
+
+            $sqlMovimientos .= "
+                AND DATE(M.fecha_movimiento)
+                = CURDATE()
+            ";
+
+        break;
+
+        case '7dias':
+
+            $sqlMovimientos .= "
+                AND M.fecha_movimiento >=
+                DATE_SUB(NOW(), INTERVAL 7 DAY)
+            ";
+
+        break;
+
+        case '30dias':
+
+            $sqlMovimientos .= "
+                AND M.fecha_movimiento >=
+                DATE_SUB(NOW(), INTERVAL 30 DAY)
+            ";
+
+        break;
+    }
+
+    $sqlMovimientos .= "
         ORDER BY M.fecha_movimiento DESC
     ";
 
     $stmtMovimientos =
         $conn->prepare($sqlMovimientos);
 
-    $stmtMovimientos->execute([
-        ...$ids,
-        ...$ids
-    ]);
+    $stmtMovimientos->execute($params);
 
     $movimientos =
         $stmtMovimientos->fetchAll(PDO::FETCH_ASSOC);
@@ -135,6 +175,62 @@ try {
 
             </p>
 
+            <!-- FILTROS -->
+
+            <div
+            style="
+            display:flex;
+            gap:10px;
+            margin-bottom:20px;
+            flex-wrap:wrap;
+            ">
+
+                <button
+                    class="btn"
+                    onclick="window.location.href='movements.php?filtro=todos'">
+
+                    Todos
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="window.location.href='movements.php?filtro=hoy'">
+
+                    Hoy
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="window.location.href='movements.php?filtro=7dias'">
+
+                    7 días
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="window.location.href='movements.php?filtro=30dias'">
+
+                    30 días
+
+                </button>
+
+            </div>
+
+            <!-- PDF -->
+
+            <button
+                class="btn"
+                onclick="window.location.href='export_movements_pdf.php'">
+
+                Exportar movimientos
+
+            </button>
+
+            <br><br>
+
             <?php if (count($movimientos) > 0): ?>
 
                 <?php foreach ($movimientos as $mov): ?>
@@ -189,7 +285,8 @@ try {
                             </span>
 
                             <?php
-                            echo $mov['cuenta_origen'];
+                            echo $mov['cuenta_origen']
+                                ?? 'N/A';
                             ?>
 
                         </p>
@@ -201,7 +298,8 @@ try {
                             </span>
 
                             <?php
-                            echo $mov['cuenta_destino'];
+                            echo $mov['cuenta_destino']
+                                ?? 'N/A';
                             ?>
 
                         </p>
@@ -215,27 +313,35 @@ try {
                             <?php if ($esSalida): ?>
 
                                 <span style="color:#ff7b7b;">
+
                                     -
+
                                     $
+
                                     <?php
                                     echo number_format(
                                         $mov['monto'],
                                         2
                                     );
                                     ?>
+
                                 </span>
 
                             <?php else: ?>
 
                                 <span style="color:#7dffb3;">
+
                                     +
+
                                     $
+
                                     <?php
                                     echo number_format(
                                         $mov['monto'],
                                         2
                                     );
                                     ?>
+
                                 </span>
 
                             <?php endif; ?>
@@ -249,7 +355,8 @@ try {
                             </span>
 
                             <?php
-                            echo $mov['descripcion'];
+                            echo $mov['descripcion']
+                                ?? 'Sin descripción';
                             ?>
 
                         </p>
