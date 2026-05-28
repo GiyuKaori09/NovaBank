@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2026 a las 05:49:51
+-- Tiempo de generación: 28-05-2026 a las 17:50:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,8 +42,8 @@ CREATE TABLE `cuenta` (
 --
 
 INSERT INTO `cuenta` (`id_cuenta`, `id_usuario`, `numero_cuenta`, `tipo_cuenta`, `saldo`, `estado`, `fecha_creacion`) VALUES
-(1, 2, '9317461918', 'debito', 2424.00, 'activa', '2026-05-09 22:56:22'),
-(2, 3, '9573620148', 'debito', 2000.00, 'activa', '2026-05-09 23:12:22'),
+(1, 2, '9317461918', 'debito', 1999.99, 'activa', '2026-05-09 22:56:22'),
+(2, 3, '9573620148', 'debito', 2424.01, 'activa', '2026-05-09 23:12:22'),
 (3, 2, '8114278178', 'credito', 5000.00, 'activa', '2026-05-10 01:21:48'),
 (4, 4, '3470224072', 'debito', 0.00, 'activa', '2026-05-10 03:12:53'),
 (5, 4, '3504805414', 'credito', 5000.00, 'activa', '2026-05-10 03:13:52'),
@@ -74,7 +74,38 @@ INSERT INTO `movimiento` (`id_movimiento`, `id_cuenta_origen`, `id_cuenta_destin
 (5, 1, 2, 'transferencia', 1000.00, 'Transferencia bancaria', '2026-05-10 02:24:24'),
 (6, 2, 1, 'transferencia', 500.00, 'Transferencia bancaria', '2026-05-10 02:25:01'),
 (7, 4, 1, 'transferencia', 100.00, 'Transferencia bancaria', '2026-05-10 03:14:42'),
-(8, 6, 1, 'transferencia', 324.00, 'Transferencia bancaria', '2026-05-12 15:06:12');
+(8, 6, 1, 'transferencia', 324.00, 'Transferencia bancaria', '2026-05-12 15:06:12'),
+(9, 1, 2, 'transferencia', 424.00, 'Transferencia bancaria', '2026-05-21 18:01:51'),
+(10, 1, 2, 'transferencia', 0.01, 'Transferencia bancaria', '2026-05-21 18:02:56');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reporte`
+--
+
+CREATE TABLE `reporte` (
+  `id_reporte` int(11) NOT NULL,
+  `usuario` varchar(100) DEFAULT NULL,
+  `accion` varchar(255) DEFAULT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reporte`
+--
+
+INSERT INTO `reporte` (`id_reporte`, `usuario`, `accion`, `fecha`) VALUES
+(1, 'Andrey Rmz', 'Inició sesión', '2026-05-28 15:28:25'),
+(2, 'Fulano 2', 'Inició sesión', '2026-05-28 15:28:41'),
+(3, 'Andrey Rmz', 'Inició sesión', '2026-05-28 15:31:34'),
+(4, 'Fulano 2', 'Inició sesión', '2026-05-28 15:31:51'),
+(5, 'Andrey Rmz', 'Inició sesión', '2026-05-28 15:32:00'),
+(6, 'Andrey Rmz', 'Cambió el estado de una cuenta a inactivo', '2026-05-28 15:32:03'),
+(7, 'Andrey Rmz', 'Inició sesión', '2026-05-28 15:32:29'),
+(8, 'Andrey Rmz', 'Cambió el estado de una cuenta a activo', '2026-05-28 15:32:32'),
+(9, 'Andrey Rmz', 'Inició sesión', '2026-05-28 15:37:32'),
+(10, 'Andrey Rmz', 'Inició sesión', '2026-05-28 15:46:25');
 
 -- --------------------------------------------------------
 
@@ -109,18 +140,19 @@ CREATE TABLE `usuario` (
   `estado` enum('activo','bloqueado') DEFAULT 'activo',
   `curp` varchar(18) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL
+  `direccion` varchar(255) DEFAULT NULL,
+  `rol` enum('cliente','admin') DEFAULT 'cliente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre_completo`, `correo`, `contrasena_hash`, `saldo`, `fecha_registro`, `estado`, `curp`, `fecha_nacimiento`, `direccion`) VALUES
-(2, 'Andrey Rmz', 'magagiarados@gmail.com', '$2y$10$oLOKzgVxT3dJS7iuZ2qrsuDYsdEymC6Gg6XB5jHeX4KeGHBtIUo42', 0.00, '2026-05-09 22:56:22', 'activo', 'PERA050412HOCRMNA9', '2005-04-12', 'Quiches'),
-(3, 'Fulano 2', 'alguien@gmail.com', '$2y$10$cvy.dcUlP2arzRU6TSfA3ORiRxUr9qkUHaOZC/svQVaRpMEOmuhM6', 0.00, '2026-05-09 23:12:22', 'activo', 'WOVU960322MSRNKT31', '2026-05-22', 'Lomas'),
-(4, 'Paulina Rmz', 'cool3250@hotmal.com', '$2y$10$Xj8g3ABSKlJgy0jwEw4InO3J9Tv3BfkDOBdybFArJEIPo4BgpGPfa', 0.00, '2026-05-10 03:12:53', 'activo', 'RAMV891029MOCMRL01', '1989-10-29', 'Quiches'),
-(5, 'Danae Ramírez Camacho', 'danae@gmail.com', '$2y$10$Kf8Rn4T2BVY3c040SKOL3.yOezAQd.va5v6agaQnWHuCeu9UfC.QK', 0.00, '2026-05-12 15:03:25', 'activo', 'RACD050623MDFMMNA7', '2005-06-23', 'LOMAS DE TEPEMEPECATL');
+INSERT INTO `usuario` (`id_usuario`, `nombre_completo`, `correo`, `contrasena_hash`, `saldo`, `fecha_registro`, `estado`, `curp`, `fecha_nacimiento`, `direccion`, `rol`) VALUES
+(2, 'Andrey Rmz', 'magagiarados@gmail.com', '$2y$10$69YCGeM7.4GGNclIpTiAPu.hKvp1k8YmCd7hY16/UqGeED0LmJmF6', 0.00, '2026-05-09 22:56:22', 'activo', 'PERA050412HOCRMNA9', '2005-04-12', 'Quiches', 'admin'),
+(3, 'Fulano 2', 'alguien@gmail.com', '$2y$10$oRRywUoi1VIaEnhPDNzrgu9.WoBQI1nRCx4H2h48FMoFUer.hS9XO', 0.00, '2026-05-09 23:12:22', 'activo', 'WOVU960322MSRNKT31', '2026-05-22', 'Lomas', 'cliente'),
+(4, 'Paulina Rmz', 'cool3250@hotmal.com', '$2y$10$Xj8g3ABSKlJgy0jwEw4InO3J9Tv3BfkDOBdybFArJEIPo4BgpGPfa', 0.00, '2026-05-10 03:12:53', 'activo', 'RAMV891029MOCMRL01', '1989-10-29', 'Quiches', 'cliente'),
+(5, 'Danae Ramírez Camacho', 'danae@gmail.com', '$2y$10$Kf8Rn4T2BVY3c040SKOL3.yOezAQd.va5v6agaQnWHuCeu9UfC.QK', 0.00, '2026-05-12 15:03:25', 'activo', 'RACD050623MDFMMNA7', '2005-06-23', 'LOMAS DE TEPEMEPECATL', 'cliente');
 
 --
 -- Índices para tablas volcadas
@@ -141,6 +173,12 @@ ALTER TABLE `movimiento`
   ADD PRIMARY KEY (`id_movimiento`),
   ADD KEY `id_cuenta_origen` (`id_cuenta_origen`),
   ADD KEY `id_cuenta_destino` (`id_cuenta_destino`);
+
+--
+-- Indices de la tabla `reporte`
+--
+ALTER TABLE `reporte`
+  ADD PRIMARY KEY (`id_reporte`);
 
 --
 -- Indices de la tabla `transaccion`
@@ -171,7 +209,13 @@ ALTER TABLE `cuenta`
 -- AUTO_INCREMENT de la tabla `movimiento`
 --
 ALTER TABLE `movimiento`
-  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `reporte`
+--
+ALTER TABLE `reporte`
+  MODIFY `id_reporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `transaccion`
