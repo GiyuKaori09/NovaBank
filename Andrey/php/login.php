@@ -42,8 +42,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['correo'] =
                     $user['correo'];
 
+                $_SESSION['saldo'] =
+                    $user['saldo'];
+
+                $nombreUsuario =
+                    $user['nombre_completo'];
+
+                $accion =
+                    "Inició sesión";
+
+                $sqlReporte = "
+                    INSERT INTO REPORTE
+                    (usuario, accion)
+                    VALUES (?, ?)
+                ";
+
+                $stmtReporte =
+                    $conn->prepare($sqlReporte);
+
+                $stmtReporte->execute([
+                    $nombreUsuario,
+                    $accion
+                ]);
+
                 header("Location: dashboard.php");
-                exit;
+                exit();
 
             } else {
 

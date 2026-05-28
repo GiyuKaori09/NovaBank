@@ -7,7 +7,7 @@ session_start();
 if (!isset($_SESSION['id_usuario'])) {
 
     header("Location: login.php");
-    exit;
+    exit();
 }
 
 $id_usuario = $_SESSION['id_usuario'];
@@ -15,7 +15,7 @@ $id_usuario = $_SESSION['id_usuario'];
 try {
 
     $sqlUsuario = "
-        SELECT nombre_completo
+        SELECT *
         FROM USUARIO
         WHERE id_usuario = ?
     ";
@@ -92,7 +92,9 @@ try {
 
             <p>
                 <?php
-                echo $usuario['nombre_completo'];
+                echo htmlspecialchars(
+                    $usuario['nombre_completo']
+                );
                 ?>
             </p>
 
@@ -179,6 +181,24 @@ try {
                 Perfil
 
             </button>
+
+            <?php if ($usuario['rol'] == 'admin'): ?>
+
+                <button
+                    onclick="window.location.href='admin.php'">
+
+                    Panel Admin
+
+                </button>
+
+                <button
+                    onclick="window.location.href='reportes.php'">
+
+                    Reportes
+
+                </button>
+
+            <?php endif; ?>
 
             <button
                 onclick="window.location.href='logout.php'">
