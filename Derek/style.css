@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #E6E9F0;
+}
+
+.phone-frame {
+    width: 360px;
+    height: auto; /* Ajustado para que quepan los nuevos campos */
+    min-height: 750px;
+    background-color: #F0F2F5;
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.back-button { color: #888; font-size: 20px; margin-bottom: 20px; }
+
+h1 { font-size: 28px; color: #555; margin-bottom: 30px; font-weight: 600; }
+
+.input-group { position: relative; margin-bottom: 15px; }
+
+input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: none;
+    background-color: #F3F5F9;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input:focus { outline: none; }
+
+.icon-left { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #aaa; }
+
+.submit-btn {
+    background-color: #6A77F2;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px rgba(106, 119, 242, 0.3);
+    transition: 0.3s;
+}
+
+.submit-btn:hover { background-color: #5865e1; }
+
+.footer-text { margin-top: 30px; text-align: center; color: #888; font-size: 13px; }
+.link-azul { color: #6A77F2; text-decoration: none; font-weight: 600; }
+
+#status { padding: 10px; border-radius: 10px; display: none; margin-bottom: 15px; font-size: 13px; text-align: center; }
+.error { background: #fee; color: #c33; border: 1px solid #fcc; }
+.success { background: #efe; color: #3c3; border: 1px solid #cfc; }
+.step-text {
+    font-size: 12px;
+    color: #6A77F2;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo especial para el selector de género */
+.custom-select {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: none;
+    background-color: #F3F5F9;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+    color: #888;
+    appearance: none; /* Quita la flecha por defecto */
+    font-size: 14px;
+}
+
+/* Icono a la derecha del botón Siguiente */
+.submit-btn i {
+    margin-left: 10px;
+    font-size: 14px;
+}
+.nip-container input {
+    background-color: #e0e5ec; /* Color ligeramente distinto */
+    font-weight: bold;
+    color: #6A77F2;
+    cursor: default;
+}
+
+.help-text {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+/* Ajuste para el alto de la tarjeta si hay muchos campos */
+.phone-frame {
+    height: auto;
+    padding-bottom: 50px;
+}
+
+/* Contenedor específico para el Dashboard */
+.dashboard {
+    justify-content: flex-start;
+    padding: 25px;
+    background-color: #F0F2F5;
+}
+
+.header-bank {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.header-icons i { margin-left: 15px; color: #6A77F2; cursor: pointer; }
+
+.main-balance { font-size: 36px; margin: 5px 0 30px 0; color: #333; }
+.main-balance span { font-size: 18px; color: #888; }
+
+.quick-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.action-item { text-align: center; font-size: 11px; color: #666; }
+
+.circle-btn {
+    width: 50px;
+    height: 50px;
+    background: #F0F2F5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    box-shadow: 5px 5px 10px #d1d9e6, -5px -5px 10px #ffffff;
+    color: #6A77F2;
+    font-size: 18px;
+}
+
+/* Tarjeta Neumórfica */
+.neumorph-card {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+    margin-bottom: 30px;
+    background: #F0F2F5;
+}
+
+.card-header { display: flex; justify-content: space-between; color: #888; font-size: 10px; font-weight: bold; margin-bottom: 15px; }
+.acc-number { font-family: 'Courier New', monospace; font-size: 16px; margin-bottom: 15px; letter-spacing: 1px; }
+.card-details { display: flex; gap: 40px; margin-bottom: 15px; }
+.card-details small { font-size: 9px; color: #aaa; text-transform: uppercase; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e0e0e0; pt: 10px; }
+
+.badge { background: #6A77F2; color: white; padding: 2px 10px; border-radius: 10px; font-size: 10px; }
+
+/* Transacciones */
+.section-title { font-size: 14px; font-weight: bold; color: #555; margin-bottom: 15px; }
+.transaction-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.transaction-item i { width: 40px; color: #888; }
+.trans-info { flex-grow: 1; }
+.trans-info p { font-size: 13px; margin: 0; font-weight: 500; }
+.trans-info small { color: #aaa; }
+.amount { font-weight: bold; font-size: 13px; }
+.negative { color: #e54; }
+.positive { color: #2a7; }

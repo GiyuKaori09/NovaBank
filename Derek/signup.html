@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - Paso 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="back-button"><a href="index.html" style="color:inherit;"><i class="fa-solid fa-arrow-left"></i></a></div>
+        <h1>Registro</h1>
+        <p class="step-text">Paso 1 de 2</p>
+
+        <form action="datos_personales.html" method="GET">
+            <div class="input-group">
+                <i class="fa-solid fa-envelope icon-left"></i>
+                <input type="email" placeholder="Correo electrónico" required>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-id-card icon-left"></i>
+                <input type="text" placeholder="CURP" maxlength="18" required style="text-transform: uppercase;">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-phone icon-left"></i>
+                <input type="tel" placeholder="Número de teléfono" maxlength="10" required>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-lock icon-left"></i>
+                <input type="password" placeholder="Contraseña" required>
+            </div>
+
+            <!-- Botón Siguiente que lleva a la tercera página -->
+            <button type="submit" class="submit-btn">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+        </form>
+    </div>
+</body>
+</html>
