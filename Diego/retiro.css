@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1a012b, #3b0066);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* ── Efecto de brillo de fondo ── */
+.glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,132,252,0.15), transparent 70%);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Contenedor principal ── */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* ── Tarjeta principal ── */
+.login-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Logo ── */
+.logo {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.logo h1 {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #c084fc;
+}
+
+/* ── Subtítulo ── */
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 22px;
+}
+
+/* ── Tarjeta de saldo ── */
+.saldo-card {
+    background: rgba(192, 132, 252, 0.1);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.saldo-label {
+    font-size: 12px;
+    opacity: 0.65;
+    margin-bottom: 4px;
+}
+
+.card-balance {
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.saldo-cuenta {
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+/* ── Grupos de inputs ── */
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    font-size: 12px;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 1px #c084fc;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Input con prefijo $ ── */
+.input-prefix-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.input-prefix-wrapper:focus-within {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 1px #c084fc;
+}
+
+.prefix {
+    padding: 12px 4px 12px 14px;
+    font-size: 15px;
+    opacity: 0.6;
+    user-select: none;
+}
+
+.input-prefix-wrapper input {
+    background: transparent;
+    padding: 12px 14px 12px 4px;
+    flex: 1;
+}
+
+.input-prefix-wrapper input:focus {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* ── Requisitos ── */
+.requisitos {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+
+.req-titulo {
+    font-size: 12px;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 8px;
+}
+
+.requisitos ul {
+    padding-left: 1.1rem;
+}
+
+.requisitos ul li {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.requisitos ul li span {
+    color: #c084fc;
+    font-weight: 600;
+}
+
+/* ── Botón principal ── */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7b2ff7, #c084fc);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 4px;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ── Mensajes ── */
+.message {
+    margin-bottom: 16px;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.message.error {
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.35);
+    color: #fca5a5;
+}
+
+.message.success {
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: #86efac;
+}
+
+/* ── Footer ── */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.footer a {
+    color: #c084fc;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
